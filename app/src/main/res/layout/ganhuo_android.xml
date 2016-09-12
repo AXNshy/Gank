@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/white">
+    <!--head-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/iv_ganhuo_avatar"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/tv_ganhuo_type"
+            android:layout_toRightOf="@+id/iv_ganhuo_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_marginLeft="8dp"
+            android:text="ganhuo 类型"/>
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="30dp"
+            android:src="@drawable/more"
+            android:alpha="0.5"/>
+        <TextView
+            android:id="@+id/tv_ganhuo_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="desc"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+            android:layout_below="@+id/tv_ganhuo_type"/>
+        <TextView
+            android:id="@+id/tv_who"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_ganhuo_desc"
+            />
+        <TextView
+            android:id="@+id/tv_publishedAt"
+            android:layout_below="@+id/tv_ganhuo_desc"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+</LinearLayout>
