@@ -22,7 +22,7 @@ import com.shy.gank.R;
  */
 public class DropDownPupTextView extends TextView{
     PopupWindow mPopupWindow;
-    int popupWindowId=-1;
+    int popupWindowId=R.layout.dropdownexample;
 
 
 
@@ -36,7 +36,6 @@ public class DropDownPupTextView extends TextView{
 
     public DropDownPupTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     @Override
@@ -51,9 +50,14 @@ public class DropDownPupTextView extends TextView{
     }
 
     private void showPopupWindow() {
-        FrameLayout frame = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.drop_down_popup,null);
+        FrameLayout frame =
+                (FrameLayout) LayoutInflater.from(getContext())
+                .inflate(R.layout.drop_down_popup,null);
         final View view = initPopup(frame);
-        mPopupWindow = new PopupWindow(frame, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
+        mPopupWindow = new PopupWindow(frame
+                , ViewGroup.LayoutParams.MATCH_PARENT
+                , ViewGroup.LayoutParams.MATCH_PARENT
+                , true);
         frame.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent motionEvent) {
@@ -87,11 +91,6 @@ public class DropDownPupTextView extends TextView{
 
     public void setPopupBackgroundDark(View view){
         view.setBackgroundColor(Color.parseColor("#38000000"));
-    }
-
-    private void init() {
-        popupWindowId = popupWindowId==-1? R.layout.dropdownexample:popupWindowId;
-
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

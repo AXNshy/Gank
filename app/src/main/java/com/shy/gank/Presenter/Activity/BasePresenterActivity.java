@@ -2,17 +2,16 @@ package com.shy.gank.Presenter.Activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.shy.gank.Vus.Vu;
+import com.shy.gank.Presenter.Activity.I.IPresenter;
+import com.shy.gank.Vus.BaseView;
 
-public abstract class BasePresenterActivity<V extends Vu> extends AppCompatActivity {
+public abstract class BasePresenterActivity<P extends IPresenter,V extends BaseView<P>> extends MvpBaseActivityPresenter<P,V> implements IPresenter{
 
-    protected V vu;
+
     protected FragmentManager fm;
-
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
@@ -26,6 +25,7 @@ public abstract class BasePresenterActivity<V extends Vu> extends AppCompatActiv
         try {
             vu = getVuClass().newInstance();
             vu.init(getLayoutInflater(), null);
+            vu.attachPresenter((P) this);
             setContentView(vu.getView());
             onBindVu();
         } catch (InstantiationException e) {
@@ -58,20 +58,6 @@ public abstract class BasePresenterActivity<V extends Vu> extends AppCompatActiv
         super.onDestroy();
     }
 
-    @Override
-    public final void onBackPressed() {
-        if(!handleBackPressed()) {
-            super.onBackPressed();
-        }
-    }
-
-    public boolean handleBackPressed(){
-        return false;
-    }
-
-    protected abstract Class<V> getVuClass();
-
-    protected void onBindVu(){}
 
     protected void onDestroyVu() {}
 

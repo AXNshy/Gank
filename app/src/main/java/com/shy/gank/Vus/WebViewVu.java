@@ -13,14 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shy.gank.Model.Bean.GanHuo;
+import com.shy.gank.Presenter.Activity.I.IWebViewActivityPresenter;
 import com.shy.gank.R;
-
+import com.shy.gank.Vus.I.Vu;
 
 
 /**
  * Created by axnshy on 16/8/30.
  */
-public class WebViewVu implements Vu {
+public class WebViewVu extends BaseView<IWebViewActivityPresenter> implements Vu{
 
     Toolbar toolbar;
     ImageView backIv;
@@ -48,6 +49,8 @@ public class WebViewVu implements Vu {
             super.onReceivedTitle(view, title);
         }
     };
+
+
     @Override
     public void init(LayoutInflater inflater, ViewGroup container) {
         view = inflater.inflate(R.layout.webview, container, false);
@@ -61,6 +64,7 @@ public class WebViewVu implements Vu {
         webview.setWebChromeClient(chromeClient);
         webview.setWebViewClient(client);
     }
+
 
     @Override
     public View getView() {

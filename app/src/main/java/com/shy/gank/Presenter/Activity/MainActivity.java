@@ -1,9 +1,12 @@
 package com.shy.gank.Presenter.Activity;
 
+import android.content.Context;
+
+import com.shy.gank.Presenter.Activity.I.IMainActivityPresenter;
 import com.shy.gank.Presenter.Fragment.Android;
 import com.shy.gank.Vus.MainVu;
 
-public class MainActivity extends BasePresenterActivity<MainVu> {
+public class MainActivity extends BasePresenterActivity<IMainActivityPresenter,MainVu> implements IMainActivityPresenter {
 
 
     @Override
@@ -13,7 +16,6 @@ public class MainActivity extends BasePresenterActivity<MainVu> {
 
     @Override
     protected void onBindVu() {
-        super.onBindVu();
         vu.initMain();
         bindViewPager();
     }
@@ -27,4 +29,33 @@ public class MainActivity extends BasePresenterActivity<MainVu> {
         vu.addFragment(Android.newInstance(),"前端");
     }
 
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public Context getMApplicationContext() {
+        return getApplicationContext();
+    }
+
+    @Override
+    public Context getMContext() {
+        return this;
+    }
+
+    @Override
+    public boolean hasNet() {
+        return false;
+    }
+
+    @Override
+    public void showToast(String s) {
+
+    }
 }

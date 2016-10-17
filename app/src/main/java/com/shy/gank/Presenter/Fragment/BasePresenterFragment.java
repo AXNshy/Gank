@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shy.gank.Vus.Vu;
+import com.shy.gank.Vus.I.Vu;
 
 public abstract class BasePresenterFragment<V extends Vu> extends Fragment {
 

@@ -17,13 +17,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.shy.gank.Model.Controls.DropDownPupTextView;
+import com.shy.gank.Presenter.Activity.I.IMainActivityPresenter;
 import com.shy.gank.R;
+import com.shy.gank.Vus.I.Vu;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainVu implements Vu {
+public class MainVu extends BaseView<IMainActivityPresenter> implements Vu {
 
     View view;
     DropDownPupTextView title;
@@ -46,7 +48,6 @@ public class MainVu implements Vu {
         toolbar = (Toolbar) coordinator.findViewById(R.id.toolbar);
         collapsingToolbar = (CollapsingToolbarLayout) coordinator.findViewById(R.id.collapsing_toolbar);
         viewpager = (ViewPager) coordinator.findViewById(R.id.viewpager);
-        title= (DropDownPupTextView) coordinator.findViewById(R.id.tv_title);
         tabs = (TabLayout) coordinator.findViewById(R.id.tabs);
     }
 
